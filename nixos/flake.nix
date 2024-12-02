@@ -20,7 +20,7 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-cosmic, ... } @ inputs: let inherit (self) outputs; in {
     nixosConfigurations = {
-      lenovo = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
 	      modules = [
           {
