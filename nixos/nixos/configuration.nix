@@ -67,15 +67,12 @@
     };
     displayManager = {
       enable = true;
-      cosmic-greeter = {
+      lightdm = {
         enable = true;
       };
     };
     desktopManager = {
-      plasma6 = {
-        enable = true;
-      };
-      cosmic = {
+      pantheon = {
         enable = true;
       };
     };
