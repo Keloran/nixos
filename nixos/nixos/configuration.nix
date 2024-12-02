@@ -137,8 +137,6 @@
 	        "networkmanager"
 	        "wheel"
 	      ];
-	      packages = with pkgs; [
-	      ];
       };
     };
   };
@@ -146,6 +144,7 @@
   environment = {
     systemPackages = with pkgs; [
       nerdfonts
+      neovim
     ];
     shellAliases = {
       vi = "nvim";
