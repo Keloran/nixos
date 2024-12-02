@@ -12,7 +12,7 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs = {
         nixpkgs = {
-	        follows = "nixpkgs";
+          follows = "nixpkgs";
 	      };
       };
     };
@@ -24,15 +24,13 @@
         specialArgs = {inherit inputs outputs;};
 	      modules = [
           {
-            nix = {
-              settings = {
-                substituters = [
-                  "https://cosmic.cachix.org/"
-                ];
-                trusted-public-keys = [
-                  "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                ];
-              };
+            nix.settings = {
+              substituters = [
+                "https://cosmic.cachix.org/"
+              ];
+              trusted-public-keys = [
+                "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+              ];
             };
           }
           nixos-cosmic.nixosModules.default
