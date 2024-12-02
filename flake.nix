@@ -11,9 +11,9 @@
     "x86_64-linux"
   ]; in {
     templates = {
-      standard = {
+      default = {
         decription = "Standard build for lenovo";
-        path = "./standard";
+        path = "./lenovo";
       };
     };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixos);
