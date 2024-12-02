@@ -5,7 +5,7 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
   ];
 
@@ -57,7 +57,7 @@
       LC_TIME = "en_GB.UTF-8";
     };
   };
-  
+
   services = {
     xserver = {
       enable = false;
@@ -67,10 +67,8 @@
       };
     };
     displayManager = {
-      sddm = {
-        wayland = {
-	        enable = true;
-	      };
+      enable = true;
+      cosmic-greeter = {
         enable = true;
       };
     };
@@ -81,8 +79,14 @@
       pantheon = {
         enable = true;
       };
+      cosmic = {
+        enable = true;
+      };
     };
     printing = {
+      enable = true;
+    };
+    flatpak = {
       enable = true;
     };
   };
@@ -110,17 +114,17 @@
     users = {
       keloran = {
         isNormalUser = true;
-	description = "Keloran";
-	extraGroups = [
-	  "networkmanager"
-	  "wheel"
-	];
-	packages = with pkgs; [
-	];
+	      description = "Keloran";
+	      extraGroups = [
+	        "networkmanager"
+	        "wheel"
+	      ];
+	      packages = with pkgs; [
+	      ];
       };
     };
   };
-  
+
   services = {
     openssh = {
       enable = true;
@@ -135,7 +139,7 @@
       enable = true;
       alsa = {
         enable = true;
-	support32Bit = true;
+	      support32Bit = true;
       };
       pulse = {
         enable = true;
@@ -153,10 +157,10 @@
     etc = {
       "1password/custom_allowed_browsers" = {
         text = ''
-	  zen-browser
-	  google-chrome-stable
-	'';
-	mode = "0755";
+	        zen-browser
+	        google-chrome-stable
+	      '';
+	      mode = "0755";
       };
     };
   };
