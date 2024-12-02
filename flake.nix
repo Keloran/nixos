@@ -13,7 +13,7 @@
     templates = {
       default = {
         description = "Standard build for lenovo";
-        path = ./lenovo;
+        path = ./nixos;
       };
     };
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixos);
