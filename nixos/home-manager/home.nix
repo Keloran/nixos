@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -72,22 +72,22 @@
           
           packages = with pkgs; [
             neovim
-	    unzip
-	    git
-	    rustup
-	    ripgrep
-	    yq
-	    jq
-	    rustc
-	    fastfetch
-	    pnpm
-	    nodejs_22
-	    go
-	    gotools
-	    google-chrome
-	    _1password-cli
-	    _1password-gui
-	    alacritty
+	          unzip
+	          git
+	          rustup
+      	    ripgrep
+	          yq
+	          jq
+	          rustc
+	          fastfetch
+	          pnpm
+	          nodejs_22
+	          go
+	          gotools
+	          google-chrome
+	          _1password-cli
+	          _1password-gui
+	          alacritty
           ];
         };
       };

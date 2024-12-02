@@ -23,7 +23,7 @@
       channel = "https://channels.nixos.org/nixos-24.11";
     };
   };
-  
+ 
   boot = {
     loader = {
       systemd-boot = {
