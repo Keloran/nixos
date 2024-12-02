@@ -63,19 +63,22 @@
       enable = false;
       xkb = {
         layout = "gb";
-	variant = "";
+	      variant = "";
       };
     };
     displayManager = {
       sddm = {
         wayland = {
-	  enable = true;
-	};
+	        enable = true;
+	      };
         enable = true;
       };
     };
     desktopManager = {
       plasma6 = {
+        enable = true;
+      };
+      pantheon = {
         enable = true;
       };
     };
