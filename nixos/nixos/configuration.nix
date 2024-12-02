@@ -42,7 +42,6 @@
     };
   };
 
-
   i18n = {
     defaultLocale = "en_GB.UTF-8";
     extraLocaleSettings = {
@@ -89,6 +88,25 @@
     flatpak = {
       enable = true;
     };
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+	      support32Bit = true;
+      };
+      pulse = {
+        enable = true;
+      };
+    };
+    openssh = {
+      enable = true;
+    };
+    locate = {
+      enable = true;
+      package = pkgs.mlocate;
+      interval = "hourly";
+      localuser = null;
+    };
   };
 
   nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs; in {
@@ -121,28 +139,6 @@
 	      ];
 	      packages = with pkgs; [
 	      ];
-      };
-    };
-  };
-
-  services = {
-    openssh = {
-      enable = true;
-    };
-    locate = {
-      enable = true;
-      package = pkgs.mlocate;
-      interval = "hourly";
-      localuser = null;
-    };
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-	      support32Bit = true;
-      };
-      pulse = {
-        enable = true;
       };
     };
   };
