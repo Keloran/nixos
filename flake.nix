@@ -1,39 +1,22 @@
 {
-  description = "Flakiest OS";
+  description = "Flake initator";
 
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-24.11";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs = {
-        nixpkgs = {
-	  follows = "nixpkgs";
-	};
-      };
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let inherit (self) outputs; in {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-	modules = [
-	  ./nixos/configuration.nix
-	];
+  outputs = {nixpkgs, ...}: let forAllSystems = nixpkgs.lib.getAttrs [
+    "x86_64-linux"
+  ]; in {
+    templates = {
+      standard = {
+        decription = "Standard build for lenovo";
+        path = "./standard";
       };
     };
-
-    homeConfigurations = {
-      "keloran@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	extraSpecialArgs = {inherit inputs outputs;};
-	modules = [
-	  ./home-manager/home.nix
-	];
-      };
-    };
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixos);
   };
 }
 
