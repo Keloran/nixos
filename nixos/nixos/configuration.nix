@@ -70,9 +70,6 @@
       cosmic-greeter = {
         enable = true;
       };
-      wayland = {
-        enable = true;
-      };
     };
     desktopManager = {
       plasma6 = {
