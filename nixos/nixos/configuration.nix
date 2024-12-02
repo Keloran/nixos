@@ -75,7 +75,7 @@
       };
     };
     desktopManager = {
-      pantheon = {
+      plasma6 = {
         enable = true;
       };
       cosmic = {
