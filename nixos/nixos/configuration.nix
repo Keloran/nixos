@@ -2,9 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, lib, pkgs, ... }:
-
-{
+{ inputs, config, lib, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -62,15 +60,15 @@
       enable = true;
       xkb = {
         layout = "gb";
-	      variant = "";
+	variant = "";
       };
-      displayManager = {
-        enable = true;
-        lightdm = {
-          enable = true;
-        };
       desktopManager = {
         pantheon = {
+          enable = true;
+        };
+      };
+      displayManager = {
+        lightdm = {
           enable = true;
         };
       };
@@ -85,7 +83,7 @@
       enable = true;
       alsa = {
         enable = true;
-	      support32Bit = true;
+	support32Bit = true;
       };
       pulse = {
         enable = true;
@@ -125,11 +123,11 @@
     users = {
       keloran = {
         isNormalUser = true;
-	      description = "Keloran";
-	      extraGroups = [
-	        "networkmanager"
-	        "wheel"
-	      ];
+	description = "Keloran";
+	extraGroups = [
+	  "networkmanager"
+	  "wheel"
+	];
       };
     };
   };
@@ -139,6 +137,20 @@
       nerdfonts
       neovim
       home-manager
+      google-chrome
+      unzip
+      git
+      rustup
+      ripgrep
+      yq
+      jq
+      rustc
+      fastfetch
+      pnpm
+      nodejs_22
+      go
+      gotools
+      alacritty
     ];
     shellAliases = {
       vi = "nvim";
@@ -146,10 +158,9 @@
     etc = {
       "1password/custom_allowed_browsers" = {
         text = ''
-	        zen-browser
-	        google-chrome-stable
-	      '';
-	      mode = "0755";
+	  google-chrome-stable
+	'';
+	mode = "0755";
       };
     };
   };
