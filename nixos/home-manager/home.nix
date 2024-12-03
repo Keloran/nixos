@@ -17,6 +17,25 @@
     username = "keloran";
     homeDirectory = "/home/keloran";
     stateVersion = "24.11";
+    packages = with pkgs; [
+      neovim
+      unzip
+      git
+      rustup
+      ripgrep
+      yq
+      jq
+      rustc
+      fastfetch
+      pnpm
+      nodejs_22
+      go
+      gotools
+      google-chrome
+      _1password-cli
+      _1password-gui
+      alacritty
+    ];
   };
 
   programs = {
@@ -61,36 +80,6 @@
   systemd = {
     user = {
       startServices = "sd-switch";
-    };
-  };
-
-  home-manager = {
-    users = {
-      keloran = {
-        home = {
-          stateVersion = "24.11";
-          
-          packages = with pkgs; [
-            neovim
-	          unzip
-	          git
-	          rustup
-      	    ripgrep
-	          yq
-	          jq
-	          rustc
-	          fastfetch
-	          pnpm
-	          nodejs_22
-	          go
-	          gotools
-	          google-chrome
-	          _1password-cli
-	          _1password-gui
-	          alacritty
-          ];
-        };
-      };
     };
   };
 }

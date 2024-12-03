@@ -59,21 +59,20 @@
 
   services = {
     xserver = {
-      enable = false;
+      enable = true;
       xkb = {
         layout = "gb";
 	      variant = "";
       };
-    };
-    displayManager = {
-      enable = true;
-      lightdm = {
+      displayManager = {
         enable = true;
-      };
-    };
-    desktopManager = {
-      pantheon = {
-        enable = true;
+        lightdm = {
+          enable = true;
+        };
+      desktopManager = {
+        pantheon = {
+          enable = true;
+        };
       };
     };
     printing = {
@@ -139,6 +138,7 @@
     systemPackages = with pkgs; [
       nerdfonts
       neovim
+      home-manager
     ];
     shellAliases = {
       vi = "nvim";
